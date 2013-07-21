@@ -3,7 +3,49 @@
   <head>
     <title>Title</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/flat_ui/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/flat_ui/bootstrap/css/bootstrap-responsive.css">
+
+
+    <!-- flat ui -->
+    <link rel="stylesheet" type="text/css" href="/flat_ui/css/flat-ui.css">
+
+    <script type="text/javascript" src="/javascripts/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/javascripts/main.js"></script>
   </head>
   <body>
+  	<div class="container">
+  		<div class="row">
+  			<div class="span5">
+  				<h1>Densha API</h1>
+  				<p>ver. 0.0.1</p>
+  			</div>
+  		</div>
+  		<hr/>
+  		<div class="row">
+  			<div class="span4">
+  				<input id="input_stationName" type="text" placeholder="駅のなまえ" class="span4">
+  			</div>
+  			<div id="datetimepicker" class="span4">
+  				<input id="input_date" type="date" placeholder="日付" class="span2">
+  			</div>
+  		</div>
+  		<div class="row">
+  			<div class="span2">
+  				<a id="a_get" href="javascript:void(0)" class="btn btn-primary btn-block" data-loading-text="Loading...">Get</a>
+  			</div>
+  		</div>
+  		<br/>
+  		<br/>
+  		<br/>
+  		<div class="row">
+  			<div class="span5">
+  				<p id="p_result">{timetables:}</p>
+  			</div>
+  		</div>
+  	</div>
   </body>
 </html>

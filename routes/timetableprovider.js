@@ -7,27 +7,19 @@ var DataAnalyzer = require('./dataanalyzer');
 
 exports.timetable = function(req, res){
 	
-	
+	console.log(req.body);
+
 	var dataCollector = new DataCollector();
-	dataCollector.GetTimeTableSource("緑園都市", 2013, 07, 16, function(error, window){
+	dataCollector.GetTimeTableSource(req.body.stationName, req.body.year, req.body.month, req.body.day, function(error, window){
 		console.log("callback");
 
 		var dataAnalyzer = new DataAnalyzer();
 		var jsonTimeTable = dataAnalyzer.GetJson(window);
 
-		/*
-		jsonTimeTable = {
-			"factor1": "val1"
-		}
-		*/
-		
 		res.write(JSON.stringify(jsonTimeTable));
 		res.end();
-		//res.render('index', {title: 'Express', timetable: "test"});
-		
-		//res.end();
+
 
 	});
   	
-  	// res.render('index', { title: 'Express' });
 };
