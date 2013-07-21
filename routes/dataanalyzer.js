@@ -11,7 +11,7 @@ DataAnalyzer.prototype.Load = function(window)
 	
 };
 
-DataAnalyzer.prototype.GetJson = function(window)
+DataAnalyzer.prototype.GetJson = function(window, year, month, day)
 {
 	console.log("GetJson");
 
@@ -37,8 +37,12 @@ DataAnalyzer.prototype.GetJson = function(window)
 	var directionCssSelector = "div.bk_tab_time div.tab.on";
 	var directions = window.$(directionCssSelector);
 
+	var lineCssSelector = "#to0 h3 b";
+	var lineInfo = window.$(lineCssSelector).text();
+
 	var json = {
-		"stationName": "",
+		"station_name": "",
+		"line": "",
 		"year_month_str": "",
 		"day_str": "",
 		"year": 2013,
@@ -47,12 +51,14 @@ DataAnalyzer.prototype.GetJson = function(window)
 		"timetables":[]
 	};
 
-	json.stationName = stationName;
+	json.station_name = stationName;
+	json.line = lineInfo;
 	json.year_month_str = yearMonth;
 	json.day_str = dayStr;
-
-	//console.log(json);
-
+	json.year = year;
+	json.month = month;
+	json.day = day;
+	
 	for(var timeTableNum = 0; timeTableNum < timetableLength; timeTableNum++)
 	{
 		// 
@@ -77,6 +83,7 @@ DataAnalyzer.prototype.GetJson = function(window)
 		   //
 		var hourValue = 0;
 		var minuteValue = 0;
+		var trainDirection = "";
 		var trainTimeArray = [];
 		for (var trNum = 0; trNum < trLength; trNum++)
 		{
@@ -96,10 +103,13 @@ DataAnalyzer.prototype.GetJson = function(window)
 				for(var divNum = 0; divNum < divLength; divNum++)
 				{
 					minuteValue = window.$(divs[divNum]).find("b").text();
+					trainType = window.$(divs[divNum]).find("span").text();
 					//console.log("HH:mm : " + hourValue + ":" + minuteValue);
+					//console.log("direction: " + trainDirection);
 					trainTimeArray.push({
 						"hour": hourValue,
-						"minute": minuteValue
+						"minute": minuteValue,
+						"type": trainType 
 					});
 				}
 
