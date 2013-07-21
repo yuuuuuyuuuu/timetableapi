@@ -29,35 +29,52 @@
 </script>
   </head>
   <body>
-  	<div class="container">
+  	<div class="container-fluid">
   		<div class="row">
   			<div class="span5">
   				<h1>Densha API</h1>
-  				<p>ver. 0.0.1</p>
-  			</div>
+  				<p>Ver. 0.0.1</p>
+		  	</div>
   		</div>
-  		<hr/>
-  		<div class="row">
-  			<div class="span4">
-  				<input id="input_stationName" type="text" placeholder="駅のなまえ" class="span4">
+  		<br>
+  		<hr>
+  		<div class="row-fluid">
+  			<div class="span3 well">
+  				<p><strong>"Densha API"とは?</strong></p>
+  				<ul>
+  					<li>時刻表データをJSON形式で出力します。</li>
+  					<br>
+  					<li>駅名・日付を入力してGetボタンで出力します。</li>
+  					<br>
+  					<li>現在は単一路線の駅のみ正常に表示できると思われます。</li>
+  					<br>
+  					<li>出力は整形されてないのでJSONLint等に貼付けて整形してください。</li>
+  					<br>
+  					<li>データは100%正確かは分からないので、悪しからず。</li>
+  				</ul>
   			</div>
-  			<div id="datetimepicker" class="span4">
-  				<input id="input_date" type="date" placeholder="日付" class="span2">
-  			</div>
-  		</div>
-  		<div class="row">
-  			<div class="span2">
-  				<a id="a_get" href="javascript:void(0)" class="btn btn-primary btn-block" data-loading-text="Loading...">Get</a>
-  			</div>
-  		</div>
-  		<br/>
-  		<br/>
-  		<br/>
-  		<div class="row">
-  			<div class="span5">
-  				<p id="p_result">{timetables:}</p>
-  			</div>
-  		</div>
+  			<div class="span9">
+		  		<div class="row offset1">
+		  			<div class="span4">
+		  				<input id="input_stationName" type="text" placeholder="駅のなまえ" class="span4">
+		  			</div>
+		  			<div id="datetimepicker" class="span4">
+		  				<input id="input_date" type="date" placeholder="日付" class="span2">
+		  			</div>
+		  			<div class="span2">
+		  				<a id="a_get" href="javascript:void(0)" class="btn btn-primary btn-block" data-loading-text="Loading...">Get</a>
+		  			</div>
+		  		</div>
+		  		<br/>
+		  		<br/>
+		  		<br/>
+		  		<div class="row offset1">
+		  			<div class="span5">
+		  				<p id="p_result">{timetables:}</p>
+		  			</div>
+		  		</div>
+		  	</div>
+		</div>	
   	</div>
   </body>
 </html>
