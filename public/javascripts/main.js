@@ -42,9 +42,9 @@ function sendRequest(stationName, year, month, day)
 		"day": parseInt(day, 10)
 	};
 
-	var url = "http://traintimetableapi.c.node-ninja.com:3000/timetable";
+	var url = "http://traintimetableapi.c.node-ninja.com/timetable";
 	//var url = "http://localhost:3000/timetable";
-	
+
 	var ajaxOption = {
 		url: url,
 		type: "POST",
